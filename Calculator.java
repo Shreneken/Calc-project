@@ -49,7 +49,7 @@ public class Calculator {
                     else if (whatTheUserInputs.equals("-")) {result = Substraction(num1, num2); gotResult = true;}
                     else if (whatTheUserInputs.equals("*")) {result = Multiplication(num1, num2); gotResult = true;}
                     else if (whatTheUserInputs.equals("/")) {result = Division(num1, num2); gotResult = true;}
-                    else {  System.out.println("Enter a valid operation"); }
+                    else {  System.out.println("Enter a valid operation"); gotResult = false; }
                     if (gotResult) {                               
                         System.out.println("The result of your operation is " + result);
                         result = 0;
@@ -63,6 +63,7 @@ public class Calculator {
                 System.out.println("Please enter again:"); 
             }
         }
+        userInput.close();
     }
 
 }
