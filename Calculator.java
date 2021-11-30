@@ -43,25 +43,29 @@ public class Calculator {
         frame.setVisible(true);*/
 
         
-        while (!gotCorrect) {
+        while (!gotCorrect) { // Setting a loop that executes until the try block completely executes
             try {
-                while (end == false) {
+                while (end == false) { // A loop that doesnt end until the user wants to
+                    
                     System.out.println("Enter your operation (+,-,*,/)");
                     whatTheUserInputs = userInput.next();
                     System.out.println("Enter 1st number");
                     num1 = userInput.nextInt();
                     System.out.println("Enter 2nd number");
                     num2 = userInput.nextInt();
+                    
                     if (whatTheUserInputs.equals("+"))  {result = Addition(num1,num2); gotResult = true;}
                     else if (whatTheUserInputs.equals("-")) {result = Substraction(num1, num2); gotResult = true;}
                     else if (whatTheUserInputs.equals("*")) {result = Multiplication(num1, num2); gotResult = true;}
                     else if (whatTheUserInputs.equals("/")) {result = Division(num1, num2); gotResult = true;}
                     else {  throw new Exception("Invalid operator"); }
-                    if (gotResult) {                               
+                    
+                    if (gotResult) {  // Print out the result                      
                         System.out.println("The result of your operation is " + result);
                         result = 0;
                     }    
-                    System.out.println("Enter 'X' if you want to exit, Etner anything else to continue:");
+                    
+                    System.out.println("Enter 'X' if you want to exit, Etner anything else to continue:"); // Exit if user wants
                     if (userInput.next().toUpperCase().equals("X")) end = true;  
                 }
                 gotCorrect = true;
