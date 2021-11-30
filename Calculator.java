@@ -1,14 +1,10 @@
 import java.util.*;
+/*import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.GridLayout;
+import java.awt.BorderLayout;*/
 
 public class Calculator {
-    private int firstNum;
-    private int secondNum;
-
-    public Calculator() {
-        firstNum = 0;
-        secondNum = 0;
-
-    }
 
     private static int Addition (int a, int b) {
         return a + b;
@@ -36,6 +32,17 @@ public class Calculator {
         int result = 0;
         boolean gotResult = false;
         
+        /*JFrame frame = new JFrame();
+        JPanel panel = new JPanel();
+        panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
+        panel.setLayout(new GridLayout(0,1));
+        frame.add(panel, BorderLayout.CENTER);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setTitle("Calculator");
+        frame.pack();
+        frame.setVisible(true);*/
+
+        
         while (!gotCorrect) {
             try {
                 while (end == false) {
@@ -49,18 +56,19 @@ public class Calculator {
                     else if (whatTheUserInputs.equals("-")) {result = Substraction(num1, num2); gotResult = true;}
                     else if (whatTheUserInputs.equals("*")) {result = Multiplication(num1, num2); gotResult = true;}
                     else if (whatTheUserInputs.equals("/")) {result = Division(num1, num2); gotResult = true;}
-                    else {  System.out.println("Enter a valid operation"); gotResult = false; }
+                    else {  throw new Exception("Invalid operator"); }
                     if (gotResult) {                               
                         System.out.println("The result of your operation is " + result);
                         result = 0;
                     }    
-                    System.out.println("Press 'X' if you want to exit");
+                    System.out.println("Enter 'X' if you want to exit, Etner anything else to continue:");
                     if (userInput.next().toUpperCase().equals("X")) end = true;  
                 }
                 gotCorrect = true;
             }
             catch ( Exception e ) {
                 System.out.println("Please enter again:"); 
+                userInput.nextLine();   
             }
         }
         userInput.close();
