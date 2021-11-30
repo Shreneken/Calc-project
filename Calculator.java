@@ -54,6 +54,7 @@ public class Calculator {
                     System.out.println("Enter 2nd number");
                     num2 = userInput.nextInt();
                     
+                    //Calculating our result according to the operator
                     if (whatTheUserInputs.equals("+"))  {result = Addition(num1,num2); gotResult = true;}
                     else if (whatTheUserInputs.equals("-")) {result = Substraction(num1, num2); gotResult = true;}
                     else if (whatTheUserInputs.equals("*")) {result = Multiplication(num1, num2); gotResult = true;}
@@ -65,7 +66,7 @@ public class Calculator {
                         result = 0;
                     }    
                     
-                    System.out.println("Enter 'X' if you want to exit, Etner anything else to continue:"); // Exit if user wants
+                    System.out.println("Enter 'X' if you want to exit, Enter anything else to continue:"); // Exit if user wants
                     if (userInput.next().toUpperCase().equals("X")) end = true;  
                 }
                 gotCorrect = true;
